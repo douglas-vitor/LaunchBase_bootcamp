@@ -1,4 +1,4 @@
-# LaunchBase_bootcamp
+# LaunchBase Bootcamp
 
 ###### Aqui será postado todos os conteúdos propostos em aula, desafios e outros. Do curso Bootcamp LaunchBase da Rocketseat.
 
