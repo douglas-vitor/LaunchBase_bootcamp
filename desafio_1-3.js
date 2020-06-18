@@ -2,13 +2,13 @@
 // Desafio 1 - 3
 
 // Programa 01
-/*
-const users = [
-    {name : "Carlos", technologies : ["HTML", "CSS"]},
-    {name : "Pedro", technologies : ["JavaScript", "CSS"]},
-    {name : "Tuane", technologies : ["HTML", "NODE.JS"]},
-]
 
+const users = [
+    { name: "Carlos", technologies: ["HTML", "CSS"] },
+    { name: "Pedro", technologies: ["JavaScript", "CSS"] },
+    { name: "Tuane", technologies: ["HTML", "NODE.JS"] },
+]
+/*
 for (user in users) {
     console.log(`${users[user].name} works with ${users[user].technologies}`)
 }*/
@@ -16,27 +16,28 @@ for (user in users) {
 
 // Buscando pela tecnologia CSS
 // Este programa usa a mesma lista do programa 01
-/*
+
 function CheckTechnologieCSS(data) {
     for (let tech of data.technologies) {
-        if (tech == "CSS") 
+        if (tech == "CSS") {
             return true
+        }
     }
     return false
 }
 
 for (i in users) {
     const userWorkswithCSS = CheckTechnologieCSS(users[i])
-    
+
     if (userWorkswithCSS) {
         console.log(`The user ${users[i].name} works with CSS`)
-    } 
+    }
 }
-*/
+
 
 
 // Programa 03
-
+/*
 const users = [
     {
         nome: "Salvio",
@@ -78,3 +79,4 @@ for (i in users) {
         console.log(`${users[i].nome} possui saldo POSITIVO de ${saldo}.`)
     }
 }
+*/
