@@ -83,11 +83,11 @@ createTransaction(tran03)
 let maiorDebito = getHigherTransactionByType('debit')
 let maiorCredito = getHigherTransactionByType('credit')
 
-console.log(`Maior transação do tipo Credito:`)
+console.log(`Maior transação do tipo Credito :`)
 console.log(maiorCredito)
 console.log(' ') // Apenas para espaçamento
 
-console.log(`Maior transação do tipo Debito:`)
+console.log(`Maior transação do tipo Debito :`)
 console.log(maiorDebito)
 console.log(' ') // Apenas para espaçamento
 
