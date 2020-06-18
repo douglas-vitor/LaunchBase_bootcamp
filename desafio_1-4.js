@@ -3,30 +3,30 @@
 
 // Programa 01
 const user = {
-    name : "Mariana",
-    transactions : [],
-    balance : 0
+    name: "Mariana",
+    transactions: [],
+    balance: 0
 }
 
 // Transações teste
 let tran01 = {
-    type : 'credit',
-    value : 50.5
+    type: 'credit',
+    value: 50.5
 }
 let tran02 = {
-    type : 'debit',
-    value : 51.5
+    type: 'debit',
+    value: 51.5
 }
 let tran03 = {
-    type : 'credit',
-    value : 90.5
+    type: 'credit',
+    value: 90.5
 }
 
 function createTransaction(transaction) {
     user.transactions.push(transaction)
-    if(transaction.type == 'credit') {
+    if (transaction.type == 'credit') {
         user.balance += transaction.value
-    } else if(transaction.type == 'debit') {
+    } else if (transaction.type == 'debit') {
         user.balance -= transaction.value
     }
 }
@@ -34,14 +34,14 @@ function createTransaction(transaction) {
 function getHigherTransactionByType(type) {
     let found = []
 
-    for(i of user.transactions){
-        if(i.type == type) {
-            found.push(i.value) 
+    for (i of user.transactions) {
+        if (i.type == type) {
+            found.push(i.value)
         }
     }
-    for(i of user.transactions) {
+    for (i of user.transactions) {
         let maxArray = Math.max.apply(null, found)
-        if(i.type == type && i.value == maxArray) {
+        if (i.type == type && i.value == maxArray) {
             return i
         }
     }
@@ -50,7 +50,7 @@ function getHigherTransactionByType(type) {
 function getAverageTransactionValue(object) {
     let tamanhoArray = user.transactions.length
     let soma = 0
-    for(t in user.transactions){
+    for (t in user.transactions) {
         soma += user.transactions[t].value
     }
     return soma / tamanhoArray
@@ -59,21 +59,21 @@ function getAverageTransactionValue(object) {
 function getTransactionsCount(object) {
     let foundCreditTransaction = []
     let foundDebitTransaction = []
-    
-    for(t of user.transactions) {
-        if(t.type == 'credit') {
+
+    for (t of user.transactions) {
+        if (t.type == 'credit') {
             foundCreditTransaction.push(1)
         }
-        if(t.type == 'debit') {
+        if (t.type == 'debit') {
             foundDebitTransaction.push(1)
         }
     }
 
-let totalTransacoesCredito = foundCreditTransaction.length
-let totalTransacoesDebito = foundDebitTransaction.length
-const resposta = { credit : totalTransacoesCredito, debit : totalTransacoesDebito}
+    let totalTransacoesCredito = foundCreditTransaction.length
+    let totalTransacoesDebito = foundDebitTransaction.length
+    const resposta = { credit: totalTransacoesCredito, debit: totalTransacoesDebito }
 
-return resposta
+    return resposta
 }
 
 createTransaction(tran01)

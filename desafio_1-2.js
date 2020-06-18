@@ -16,12 +16,12 @@ console.log(`The company ${company.name} is located in ${company.address}`)
 // Programa 02
 
 const programmers = {
-    name : "Pedro",
-    age : 12,
-    technologies : [
-        {name : "C++", specialty : "Desktop"},
-        {name : "Python", specialty : "Data Science"},
-        {name : "JavaScript", specialty : "Web/Mobile"}
+    name: "Pedro",
+    age: 12,
+    technologies: [
+        { name: "C++", specialty: "Desktop" },
+        { name: "Python", specialty: "Data Science" },
+        { name: "JavaScript", specialty: "Web/Mobile" }
     ]
 }
 
