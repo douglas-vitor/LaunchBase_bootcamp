@@ -1,0 +1,78 @@
+<!-- https://github.com/Rocketseat/bootcamp-launchbase-desafios-02/blob/master/desafios/02-3-pagina-cursos-e-iframe.md -->
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Desafio 2-3 | LaunchBase</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="desafio_2-x.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>
+            body {
+                background-image: url("");
+                position: relative;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-header">
+            <header>
+                <a href="desafio_2-1.html">Home</a>
+                <a href="https://discordapp.com/invite/gCRAFhc" target="_blank">Comunidade</a>
+                <a href="mailto:oi@rocketseat.com.br">Email</a>
+                <a href="tel:+5547992078767">Telefone</a>
+                <a href="desafio_2-2.html">Sobre</a>
+                <a href="desafio_2-3.html">Conteúdos</a>
+            </header>
+        </div>
+
+        <section class="cards">
+            <div class="card" id="starter">
+                <div class="image"><img src="starter.svg" alt="Logo Starter"></div>
+                <div class="info">
+                    <h3>5 modulos</h3>
+                </div>
+                <div class="price">
+                    <h1>Gratuito</h1>
+                </div>
+            </div>
+
+            <div class="card" id="launchbase">
+                <div class="image"><img src="launchbase.svg" alt="Logo Launchbase"></div>
+                <div class="info">
+                    <h3>10 modulos</h3>
+                </div>
+                <div class="price">
+                    <h1>R$ 5.000</h1>
+                </div>
+            </div>
+
+            <div class="card" id="gostack">
+                <div class="image"><img src="gostack.svg" alt="Logo GoStack"></div>
+                <div class="info">
+                    <h3>15 modulos</h3>
+                </div>
+                <div class="price">
+                    <h1>R$ 19.000</h1>
+                </div>
+            </div>
+        </section>
+        <div class="modal-overlay">
+            <div class="modal">
+                <a class="close-modal">
+                    <i class="material-icons">close</i>
+                </a>
+                <div class="modal-content">
+                    <iframe src="" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <a href="http://fb.com/rocketseat" target="_blank"><img src="https://rocketseat.com.br/static/images/icons/facebook.svg" alt="Facebook"></a>
+            <a href="http://instagram.com/rocketseat_oficial" target="_blank"><img src="https://rocketseat.com.br/static/images/icons/instagram.svg" alt="Instagram"></a>
+            <a href="https://github.com/Rocketseat" target="_blank"><img src="github-icon.svg" alt="Github"></a>
+        </footer>
+        <script src="desafio_2-x.js"></script>
+    </body>
+</html>

@@ -54,6 +54,11 @@ header a:hover {
     transition: 400ms;
     border-bottom: 1px solid var(--green-theme-hover);
 }
+section.home {
+    float: left;
+    width: 100%;
+    height: 78%;
+}
 
 /* Desafio 2-2 */
 section {
@@ -100,7 +105,8 @@ section ul {
 }
 section ul li {
     color: var(--color-theme-dark);
-    font-size: 1.5em;
+    font-size: 1em;
+    font-weight: bold;
 }
 footer {
     width: 100%;
@@ -120,4 +126,85 @@ footer a {
 }
 footer a:hover {
     border-bottom: 3px double var(--green-theme-hover);
+}
+
+
+/* Desafio 2-3 */
+section.cards {
+    float: left;
+    width: 100%;
+    height: 78%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+section.cards .card {
+    padding: 20px;
+    width: 150px;
+    height: 200px;
+    background-color: black;
+    border: 3px solid var(--color-theme-dark);
+    border-radius: 8px;
+    margin: auto 0;
+    cursor: pointer;
+}
+section.cards .card:hover {
+    border: 3px solid var(--green-theme-hover);
+    transition: 400ms;
+}
+section.cards .card .info {
+    margin: 15px 0;
+}
+section.cards .card .info h3 {
+    color: #C0C0C0;
+}
+section.cards .card .price h1 { 
+    font-size: x-large;
+    margin-top: 30px;
+    border: 0; 
+}
+
+/* Modal */
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+.modal {
+    background-color: white;
+    width: 10%; /*90%*/
+    height: 10%; /*90%*/
+    margin: 5vh auto;
+    position: relative;
+    border: 3px solid var(--green-theme-hover);
+    border-radius: 8px;
+}
+.modal .close-modal {
+    color: black;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+/* Modal active */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+iframe {
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    top: 5%;
+}
+.maximize {
+    width: 90%;
+    height: 90%;
+    transition: 400ms;
 }
