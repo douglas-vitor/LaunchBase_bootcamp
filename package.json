@@ -1,0 +1,27 @@
+{
+  "name": "LaunchBase_bootcamp",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">\r <img src=\"logo-lauchbase.png\" width=\"250px\" height=\"auto\">\r </div>",
+  "main": "desafio_1-1.js",
+  "scripts": {
+    "start": "nodemon desafio_3-1_server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/douglas-vitor/LaunchBase_bootcamp.git"
+  },
+  "keywords": [],
+  "author": "Douglas Vitor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/douglas-vitor/LaunchBase_bootcamp/issues"
+  },
+  "homepage": "https://github.com/douglas-vitor/LaunchBase_bootcamp#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "nunjucks": "^3.2.1"
+  }
+}

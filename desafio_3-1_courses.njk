@@ -1,0 +1,60 @@
+{% extends "desafio_3-1_layout.njk" %}
+
+{% block title %}
+    <title>Desafio 3-1 | Courses | LaunchBase</title>
+{% endblock title %}
+
+{% block styles %}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% endblock styles %}
+
+{% block content %}
+    <section class="cards">
+        <div class="card" id="starter">
+            <div class="image"><img src="starter.svg" alt="Logo Starter"></div>
+            <div class="info">
+                <h3>5 modulos</h3>
+            </div>
+            <div class="price">
+                <h1>Gratuito</h1>
+            </div>
+        </div>
+
+        <div class="card" id="launchbase">
+            <div class="image"><img src="launchbase2.svg" alt="Logo Launchbase"></div>
+            <div class="info">
+                <h3>10 modulos</h3>
+            </div>
+            <div class="price">
+                <h1>R$ 5.000</h1>
+            </div>
+        </div>
+
+        <div class="card" id="gostack">
+            <div class="image"><img src="gostack.svg" alt="Logo GoStack"></div>
+            <div class="info">
+                <h3>15 modulos</h3>
+            </div>
+            <div class="price">
+                <h1>R$ 19.000</h1>
+            </div>
+        </div>
+    </section>
+    <div class="modal-overlay">
+        <div class="modal">
+            <a class="expand-modal">
+                <i class="material-icons">fullscreen</i>
+            </a>
+            <a class="close-modal">
+                <i class="material-icons">close</i>
+            </a>
+            <div class="modal-content">
+                <iframe src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="desafio_3-x.js"></script>
+{% endblock scripts %}

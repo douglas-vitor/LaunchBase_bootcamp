@@ -1,0 +1,37 @@
+{% extends "desafio_3-1_layout.njk" %}
+
+{% block title %}
+    <title>Desafio 3-1 | About | LaunchBase</title>
+{% endblock title %}
+
+{% block styles %}
+    <style>
+        body {
+            background-image: url("");
+            position: relative;
+        }
+    </style>
+{% endblock styles %}
+
+{% block content %}
+    <section class="home">
+        <div class="container-image">
+            <img src="https://rocketseat.com.br/static/images/logo-rocketseat.svg" id="logo" alt="Logo">
+            <h1>
+                <a href="https://rocketseat.com.br" target="_blank">Rocketseat</a>
+            </h1>
+        </div>
+
+        <div class="home-content">
+            <h2>As melhores tecnologias em programação, direto ao ponto e do jeito certo.</h2>
+            <h3>No meio de tanta informação e da quantidade de ferramentas que surgem todos os dias, você precisa de alguém que te leve na direção certa.</h3>
+
+            <ul>
+                Principais tecnologias abordadas:
+                <li>CSS</li>
+                <li>HTML</li>
+                <li>JAVASCRIPT</li>
+            </ul>
+        </div>
+    </section>
+{% endblock content %}

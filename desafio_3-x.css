@@ -1,0 +1,257 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap";
+:root {
+    --color-theme: #7159C1;
+    --color-theme-dark: #3a2f5e;
+    --green-theme: #3eec8d;
+    --green-theme-hover: #34cb79;
+}
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    overflow-y: auto;
+    margin: 0;
+    background-color: var(--color-theme);
+    position: fixed;
+    background-image: url("logo-lauchbase.png");
+    background-repeat: no-repeat no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 30em auto;
+}
+.container-header {
+    float: left;
+    background-color: var(--color-theme-dark);
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.288);
+}
+header {
+    width: auto;
+    height: auto;
+    padding: 30px;
+}
+header a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+header a:hover {
+    color: var(--green-theme-hover);
+    transition: 400ms;
+    border-bottom: 1px solid var(--green-theme-hover);
+}
+
+/* About */
+section.home {
+    width: 100%;
+    height: 78%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+section.home .container-image {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section.home .container-image img {
+    width: 90%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 50%;
+    border: var(--color-theme-dark) 3px solid;
+    margin: 20px 0;
+}
+section.home .container-image h1 {
+    color: white;
+    border-bottom: 3px double var(--color-theme-dark);
+    font-weight: bold;
+    font-size: 40px;
+}
+section.home .container-image h1 a {
+    text-decoration: none;
+    color: white;
+}
+section.home .home-content {
+    width: 60%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+section.home .home-content h2 {
+    color: #1C1C1C;
+    text-align: center;
+    margin: 5px 0;
+    font-size: 25px;
+    font-weight: bold;
+}
+section.home .home-content h3 {
+    color: rgb(219, 218, 218);
+    text-align: justify;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+section.home .home-content ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 20px 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    color: #1C1C1C;
+}
+section.home .home-content ul li {
+    color: var(--color-theme-dark);
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #C0C0C0;
+}
+
+/* Not-found */
+section.home .not-found {
+    width: 100%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 40px;
+    color: #C0C0C0;
+    padding: 20px;
+    text-align: center;
+}
+footer {
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+
+    background-color: var(--color-theme-dark);
+}
+footer a {
+    margin: 0 15px;
+    padding: 5px;
+}
+footer a:hover {
+    border-bottom: 3px double var(--green-theme-hover);
+}
+
+
+/* Courses */
+section.cards {
+    float: left;
+    width: 100%;
+    height: 78%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+section.cards .card {
+    padding: 20px;
+    width: 150px;
+    height: 200px;
+    background-color: black;
+    border: 3px solid var(--color-theme-dark);
+    border-radius: 8px;
+    margin: auto 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+section.cards .card:hover {
+    border: 3px solid var(--green-theme-hover);
+    transition: 400ms;
+}
+section.cards .card .info {
+    margin: 15px 0;
+}
+section.cards .card .info h3 {
+    color: #C0C0C0;
+}
+section.cards .card .price h1 { 
+    font-size: x-large;
+    margin-top: 30px;
+    border: 0; 
+    color: #C0C0C0;
+}
+
+/* Modal */
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+.modal {
+    background-color: white;
+    width: 50%; /*90%*/
+    height: 50%; /*90%*/
+    margin: 5vh auto;
+    position: relative;
+    border: 3px solid var(--green-theme-hover);
+    border-radius: 8px;
+}
+.modal .close-modal {
+    color: black;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+.modal .expand-modal {
+    color: black;
+    position: absolute;
+    right: 35px;
+    top: 8px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+/* Modal active */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+iframe {
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    top: 30px;
+}
+.maximize {
+    width: 90%;
+    height: 90%;
+    transition: 400ms;
+}
