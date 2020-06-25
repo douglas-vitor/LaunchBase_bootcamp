@@ -19,3 +19,6 @@
 - [Desafio 2 - 1](https://github.com/douglas-vitor/LaunchBase_bootcamp/blob/master/desafio_2-1.html)
 - [Desafio 2 - 2](https://github.com/douglas-vitor/LaunchBase_bootcamp/blob/master/desafio_2-2.html)
 - [Desafio 2 - 3](https://github.com/douglas-vitor/LaunchBase_bootcamp/blob/master/desafio_2-3.html)
+###### **Módulo 3**
+###### **Arquivos :** (desafio_3-1_about.njk, desafio_3-1_courses.njk, desafio_3-1_layout.njk, desafio_3-1_not-found.njk, desafio_3-x.css, desafio_3-x.js, desafio_3-1_server.js, favicon.ico, github-icon.svg, gostack.svg, launchbase2.svg, starter.svg, logo-launchbase.png)
+- [Desafio 3 - 1](https://github.com/douglas-vitor/LaunchBase_bootcamp/blob/master/desafio_3-1_server.js)
