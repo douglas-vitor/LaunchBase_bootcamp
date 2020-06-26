@@ -24,13 +24,15 @@
 
         <div class="home-content">
             <h2>As melhores tecnologias em programação, direto ao ponto e do jeito certo.</h2>
-            <h3>No meio de tanta informação e da quantidade de ferramentas que surgem todos os dias, você precisa de alguém que te leve na direção certa.</h3>
+            {% for item in about %}
+            <h3>{{item.about}}</h3>
+            {% endfor %}
 
             <ul>
                 Principais tecnologias abordadas:
-                <li>CSS</li>
-                <li>HTML</li>
-                <li>JAVASCRIPT</li>
+                <li><img src="/assets/css.svg">CSS</li>
+                <li><img src="/assets/html5.svg">HTML</li>
+                <li><img src="/assets/javascript.svg">JAVASCRIPT</li>
             </ul>
         </div>
     </section>

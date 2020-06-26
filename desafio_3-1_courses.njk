@@ -10,35 +10,17 @@
 
 {% block content %}
     <section class="cards">
-        <div class="card" id="starter">
-            <div class="image"><img src="starter.svg" alt="Logo Starter"></div>
+{% for item in data %}
+        <div class="card" id="{{item.name}}">
+            <div class="image"><img src="{{item.image}}" alt="Logo Starter"></div>
             <div class="info">
-                <h3>5 modulos</h3>
+                <h3>{{item.module}}</h3>
             </div>
             <div class="price">
-                <h1>Gratuito</h1>
+                <h1>{{item.price}}</h1>
             </div>
         </div>
-
-        <div class="card" id="launchbase">
-            <div class="image"><img src="launchbase2.svg" alt="Logo Launchbase"></div>
-            <div class="info">
-                <h3>10 modulos</h3>
-            </div>
-            <div class="price">
-                <h1>R$ 5.000</h1>
-            </div>
-        </div>
-
-        <div class="card" id="gostack">
-            <div class="image"><img src="gostack.svg" alt="Logo GoStack"></div>
-            <div class="info">
-                <h3>15 modulos</h3>
-            </div>
-            <div class="price">
-                <h1>R$ 19.000</h1>
-            </div>
-        </div>
+{% endfor %}
     </section>
     <div class="modal-overlay">
         <div class="modal">

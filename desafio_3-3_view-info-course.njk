@@ -1,7 +1,7 @@
 {% extends "desafio_3-1_layout.njk" %}
 
 {% block title %}
-    <title>Not-Found | Launchbase</title>
+    <title>Info | Launchbase</title>
 {% endblock title %}
 
 {% block styles %}
@@ -14,9 +14,7 @@
 {% endblock styles %}
 
 {% block content %}
-    <section class="home">
-        <div class="not-found">
-            Ops :( , esta página não existe ou esta fora do ar no momento.
-        </div>
-    </section>
+<div class="info-course">
+    <iframe src="https://rocketseat.com.br/{{info.name}}" frameborder="0"></iframe>
+</div>
 {% endblock content %}
