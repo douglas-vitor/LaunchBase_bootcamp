@@ -46,7 +46,7 @@ server.get("/courses", function (req, res) {
         if (test == name) {
             return true
         }
-    })
+    }) 
     // Se função acima retornar false, então else não sera true e retornar pagina not-found
     if (!test) {
         return res.status(404).render("desafio_3-1_not-found.njk")
