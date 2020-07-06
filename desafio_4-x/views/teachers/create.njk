@@ -1,0 +1,51 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <form id="create-teachers" action="/teachers" method="POST">
+        <div class="container-create">
+            <div class="image"></div>
+            <div class="infos">
+                <div class="item">
+                    <h1>Avatar URL</h1>
+                    <input type="url" name="avatar_url" placeholder="http://">
+                </div>
+
+                <div class="item">
+                    <h1>Nome do Professor</h1>
+                    <input type="text" name="name" placeholder="Nome">
+                </div>
+
+                <div class="item">
+                    <h1>Data de Nascimento</h1>
+                    <input type="date" name="birth">
+                </div>
+
+                <div class="item">
+                    <h1>Escolaridade</h1>
+                    <select name="education">
+                        <option value="fundamental">Ensino fundamental</option>
+                        <option value="medio">Ensino médio</option>
+                        <option value="superior">Ensino superior Completo</option>
+                        <option value="mestrado">Mestrado</option>
+                        <option value="doutorado">Doutorado</option>
+                    </select>
+                </div>
+
+                <div class="item">
+                    <h1>Tipo de aula</h1>
+                    <input type="radio" name="type_class" value="presencial" checked>Presencial
+                    <input type="radio" name="type_class" value="distancia">À distância
+                </div>
+
+                <div class="item">
+                    <h1>Área de atuação</h1>
+                    <input type="text" name="area" placeholder="Separe as áreas por virgula">
+                </div>
+
+            <button type="submit">Salvar</button>
+
+            </div>
+
+        </div>
+    </form>
+{% endblock content %}

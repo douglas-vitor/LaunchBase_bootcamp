@@ -1,0 +1,25 @@
+{
+    "teachers": [
+        {
+            "id": 1,
+            "avatar_url": "https://static.thenounproject.com/png/516772-200.png",
+            "name": "Douglas",
+            "birth": 947894400000,
+            "education": "medio",
+            "type_class": "distancia",
+            "area": "Programação, Design",
+            "created_at": 1593994207907
+        },
+        {
+            "id": 2,
+            "avatar_url": "https://static.thenounproject.com/png/516772-200.png",
+            "name": "Bianca",
+            "birth": 1551484800000,
+            "education": "fundamental",
+            "type_class": "distancia",
+            "area": "Natação,Portugues",
+            "created_at": 1593994672764
+        }
+    ],
+    "students": []
+}
