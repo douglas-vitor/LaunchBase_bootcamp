@@ -1,11 +1,12 @@
 {% extends "layout.njk" %}
 
 {% block content %}
-    <form id="create-teachers" action="/teachers" method="POST">
+    <form action="/teachers?_method=PUT" method="POST">
         <div class="container-create">
             <div class="image" style="background: url(https://source.unsplash.com/collection/517198/500x500) no-repeat center center / cover;"></div>
             <div class="infos">
                 {% include "teachers/fields.njk" %}
+                <input type="hidden" name="id" value="{{teachers.id}}">
             </div>
 
         </div>

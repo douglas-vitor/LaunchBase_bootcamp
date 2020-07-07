@@ -3,9 +3,9 @@
         {
             "id": 1,
             "avatar_url": "https://static.thenounproject.com/png/516772-200.png",
-            "name": "Douglas",
-            "birth": 947894400000,
-            "education": "medio",
+            "name": "Douglas Vitor",
+            "birth": 795657600000,
+            "education": "doutorado",
             "type_class": "distancia",
             "area": "Programação, Design",
             "created_at": 1593994207907
@@ -13,12 +13,22 @@
         {
             "id": 2,
             "avatar_url": "https://static.thenounproject.com/png/516772-200.png",
-            "name": "Bianca",
-            "birth": 1551484800000,
-            "education": "fundamental",
+            "name": "Bianca Xavier",
+            "birth": 951955200000,
+            "education": "mestrado",
             "type_class": "distancia",
             "area": "Natação,Portugues",
             "created_at": 1593994672764
+        },
+        {
+            "id": 3,
+            "avatar_url": "https://img.olx.com.br/images/25/255004025105612.jpg",
+            "name": "Maggie",
+            "birth": 1591574400000,
+            "education": "fundamental",
+            "type_class": "presencial",
+            "area": "Historia",
+            "created_at": 1594082814608
         }
     ],
     "students": []

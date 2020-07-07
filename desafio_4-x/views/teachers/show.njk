@@ -1,0 +1,47 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <div id="create-teachers">
+        <div class="container-create">
+            <div class="image" style="background: url({{teachers.avatar_url}}) no-repeat center center / cover;"></div>
+            <div class="infos">
+
+                <div class="item">
+                    <h1>Nome do Professor</h1>
+                    <h2>{{teachers.name}}</h2>
+                </div>
+
+                <div class="item">
+                    <h1>Idade</h1>
+                    <h2>{{teachers.age}}</h2>
+                </div>
+
+                <div class="item">
+                    <h1>Graduação</h1>
+                    <h2>{{teachers.education}}</h2>
+                </div>
+
+                <div class="item">
+                    <h1>Tipo de aula</h1>
+                    <h2>{{teachers.type_class}}</h2>
+                </div>
+
+                <div class="item">
+                    <h1>Acompanhamento</h1>
+                    {% for area in teachers.area %}
+                        <span>{{area}}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="item">
+                    <h1>Desde</h1>
+                    <h2>{{teachers.created_at}}</h2>
+                </div>
+
+                <a class="submit-edit" href="/teachers/{{teachers.id}}/edit">Editar</a>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock content %}

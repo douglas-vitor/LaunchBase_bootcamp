@@ -164,7 +164,7 @@ header {
     grid-template-columns: 1fr 1fr;
 }
 .container-create .image {
-    background: url(https://source.unsplash.com/collection/517198/500x500) no-repeat center center / cover;
+    /*background: url(https://source.unsplash.com/collection/517198/500x500) no-repeat center center / cover;*/
     width: 100%;
     height: 100%;
     border-radius: 5px 0 0 5px;
@@ -209,4 +209,38 @@ header {
     margin-top: 10px;
     border-radius: 5px;
     cursor: pointer;
+}
+.infos .item h2 {
+    color: var(--color-medium-black);
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+.infos .item span {
+    background-color: var(--color-red);
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 5px;
+    color: white;
+    text-transform: uppercase;
+}
+.infos .item span {
+    margin-right: 5px;
+}
+.infos .submit-edit {
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 5px 16px;
+    background-color: var(--color-green);
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
 }

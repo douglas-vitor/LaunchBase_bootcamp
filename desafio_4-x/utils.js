@@ -28,5 +28,21 @@ module.exports = {
             iso: `${year}-${month}-${day}`,
             birthDay: `${day}/${month}`
         }
+    },
+    graduation: function(education) {
+        let formation_teacher = ""
+        if(education == "fundamental") {
+            formation_teacher = "Ensino fundamental"
+        } else if(education == "medio") {
+            formation_teacher = "Ensino médio completo"
+        } else if(education == "superior") {
+            formation_teacher = "Ensino superior completo"
+        } else if(education == "mestrado") {
+            formation_teacher = "Mestrado"
+        } else if(education = "doutorado") {
+            formation_teacher = "Doutorado"
+        }
+
+        return formation_teacher
     }
 }
