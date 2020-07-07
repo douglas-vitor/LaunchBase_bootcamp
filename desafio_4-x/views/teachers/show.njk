@@ -38,8 +38,13 @@
                     <h2>{{teachers.created_at}}</h2>
                 </div>
 
-                <a class="submit-edit" href="/teachers/{{teachers.id}}/edit">Editar</a>
-
+                <div class="container-buttons">
+                    <a class="submit-edit" href="/teachers/{{teachers.id}}/edit">Editar</a>
+                    <form action="/teachers?_method=DELETE" method="POST">
+                        <input type="hidden" name="id" value="{{teachers.id}}">
+                        <button type="submit">Deletar</button>
+                    </form>
+                </div>
             </div>
 
         </div>

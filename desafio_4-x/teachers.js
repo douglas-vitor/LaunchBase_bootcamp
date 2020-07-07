@@ -88,7 +88,7 @@ exports.edit = function(req, res) {
 }
 
 // Put
-exports.put = function(req, res) {
+exports.update = function(req, res) {
     const { id } = req.body
     let index = 0
 
@@ -116,5 +116,22 @@ exports.put = function(req, res) {
             return res.send("write error")
         }
         return res.redirect(`/teachers/${id}`)
+    })
+}
+
+// Delete
+exports.delete = function(req, res) {
+    const {id} = req.body
+    const filteredTeachers = data.teachers.filter(function(teacher) {
+        return teacher.id != id
+    })
+
+    data.teachers = filteredTeachers
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 4), function(err) {
+        if(err) {
+            return res.send("write file error")
+        }
+        return res.redirect("/teachers")
     })
 }

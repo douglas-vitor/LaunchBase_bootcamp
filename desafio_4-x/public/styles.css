@@ -229,8 +229,13 @@ header {
 .infos .item span {
     margin-right: 5px;
 }
-.infos .submit-edit {
-    width: 100%;
+.container-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+.infos .container-buttons .submit-edit,
+.infos .container-buttons button {
     display: inline-block;
     box-sizing: border-box;
     padding: 5px 16px;
@@ -243,4 +248,7 @@ header {
     cursor: pointer;
     text-decoration: none;
     text-align: center;
+}
+.infos .container-buttons button {
+    background-color: var(--color-red);
 }
