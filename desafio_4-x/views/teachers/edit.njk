@@ -2,13 +2,15 @@
 
 {% block content %}
     <form action="/teachers?_method=PUT" method="POST">
-        <div class="container-create">
-            <div class="image" style="background: url(https://source.unsplash.com/collection/517198/500x500) no-repeat center center / cover;"></div>
-            <div class="infos">
-                {% include "teachers/fields.njk" %}
-                <input type="hidden" name="id" value="{{teachers.id}}">
-            </div>
+        <div class="cards">
+            <div class="card">
+                <section class="image" style="background: url(https://source.unsplash.com/collection/517198/500x500) no-repeat center center / cover;"></section>
 
+                <div class="detalhes">
+                    {% include "teachers/fields.njk" %}
+                    <input type="hidden" name="id" value="{{teachers.id}}">
+                </div>
+            </div>
         </div>
     </form>
 {% endblock content %}

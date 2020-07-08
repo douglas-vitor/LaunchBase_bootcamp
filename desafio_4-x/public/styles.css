@@ -66,20 +66,22 @@ header {
     padding: 20px 20px;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     justify-items: center;
     gap: 10px;
 }
-.card {
-    width: 300px;
-    height: 590px;
+.card,
+.cards table {
+    min-width: 95%;
+    min-height: 500px;
     background-color: white;
-    display: inline-block;
     padding: 5px 5px;
     border: 1px solid var(--color-red);
     border-radius: 20px;
     box-shadow: -5px 5px 10px -3px var(--color-red);
     animation: card 200ms ease-in;
+    display: grid;
+    grid-template-columns: 40% 60%;
 }
 
 @keyframes card {
@@ -92,131 +94,69 @@ header {
     }
 }
 
-.card section.image {
-    width: 100%;
-    height: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.card section.image img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    margin: 5px;
-    box-sizing: border-box;
-    border: 1px solid rgb(204, 204, 204);
-}
-.card section.details {
-    height: 60%;
-}
-.card section.details .item {
-    border-top: 1px solid rgb(204, 204, 204);
-}
-.card section.details .item:first-child {
-    margin-top: 10px;
-    border: none;
-}
-.card section.details .item h3 {
-    color: var(--color-gray);
-    font-size: 14px;
-    line-height: 24px;
-    text-transform: uppercase;
-    font-weight: normal;
-}
-.card section.details .item h2 {
-    color: var(--color-medium-black);
-    font-size: 18px;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-.card section.details .item span {
-    background-color: var(--color-red);
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-weight: bold;
-    display: inline-block;
-    margin-bottom: 5px;
-}
-.card section.details .item h3 + span {
-    margin-left: 10px;
-}
-.card section.details .item h3:nth-child(2) {
-    color: var(--color-medium-black);
-    font-size: 18px;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
 /* Form-create */
-.container-create {
-    width: 80%;
-    max-width: 800px;
-    min-height: 400px;
-    background-color: white;
-    border-radius: 5px;
-    border: 1px solid var(--color-red);
-    margin: 40px auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-.container-create .image {
-    /*background: url(https://source.unsplash.com/collection/517198/500x500) no-repeat center center / cover;*/
+
+ .imagem {
     width: 100%;
     height: 100%;
-    border-radius: 5px 0 0 5px;
+    border-radius: 20px 0 0 20px;
 }
-.container-create .infos {
+ .detalhes {
     padding: 15px;
+    position: relative;
 }
-.infos .item { 
+.detalhes .item { 
     color: var(--color-medium-black);
-    margin-top: 10px;
+    margin-top: 20px;
+    border-top: 1px solid var(--color-gray);
 }
-.infos .item:first-child {
+.detalhes .item:first-child {
     margin-top: 0;
+    border-top: none;
 }
-.infos .item h1 {
+.detalhes .item:nth-child(6) h1 {
+    color: var(--color-gray);
+}
+.detalhes .item:nth-child(6) h2 {
+    color: var(--color-medium-black);
+}
+.detalhes .item h1 {
     color: var(--color-gray);
     font-size: 14px;
     line-height: 24px;
     font-weight: normal;
     text-transform: uppercase;
 }
-.infos .item input,
-.infos .item select {
+.detalhes .item input,
+.detalhes .item select {
     color: var(--color-medium-black);
     font-size: 18px;
     width: 100%;
-
     outline: none;
 }
-.infos .item input[type="radio"] {
+.detalhes .item input[type="radio"] {
     margin-right: 5px;
     width: auto;
     display: inline-block;
 }
-.container-create .infos button {
+ .detalhes button {
     width: 100%;
     padding: 5px 16px;
     background-color: var(--color-green);
     color: white;
     font-weight: bold;
     font-size: 18px;
-    margin-top: 10px;
+    margin-top: 40px;
     border-radius: 5px;
     cursor: pointer;
 }
-.infos .item h2 {
+.detalhes .item h2 {
     color: var(--color-medium-black);
     font-size: 18px;
     text-transform: uppercase;
     font-weight: normal;
 }
-.infos .item span {
+.detalhes .item span {
     background-color: var(--color-red);
     padding: 5px 10px;
     border-radius: 10px;
@@ -226,16 +166,17 @@ header {
     color: white;
     text-transform: uppercase;
 }
-.infos .item span {
+.detalhes .item span {
     margin-right: 5px;
 }
 .container-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
+    margin-top: 20px;
 }
-.infos .container-buttons .submit-edit,
-.infos .container-buttons button {
+.detalhes .container-buttons .submit-edit,
+.detalhes .container-buttons button {
     display: inline-block;
     box-sizing: border-box;
     padding: 5px 16px;
@@ -249,6 +190,73 @@ header {
     text-decoration: none;
     text-align: center;
 }
-.infos .container-buttons button {
+.detalhes .container-buttons button {
     background-color: var(--color-red);
+}
+
+/* Table */
+.cards table {
+    color: black;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 95%;
+}
+.cards table thead,
+.cards table tbody {
+    width: 100%;
+    display: inline-block;
+}
+.cards table thead tr,
+.cards table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.cards table thead tr,
+.cards table tbody tr {
+    text-align: center;
+}
+td, th {
+    padding: 16px;
+    border-bottom: 1px solid var(--color-gray);
+}
+th {
+    text-transform: uppercase;
+    color: var(--color-red);
+    font-size: 14px;
+}
+tbody tr:last-child td {
+    border-bottom: none;
+}
+tbody tr td {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+tbody tr td:first-child span {
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 3px 1px 6px -4px black;
+    border: 2px solid white;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+tbody tr td:last-child a,
+tbody tr td span[id="area"] {
+    background-color: var(--color-red);
+    padding: 8px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+tbody tr td span[id="area"] {
+    padding: 4px 8px;
+    margin-right: 5px;
 }

@@ -1,10 +1,10 @@
 {% extends "layout.njk" %}
 
 {% block content %}
-    <div id="create-teachers">
-        <div class="container-create">
-            <div class="image" style="background: url({{teachers.avatar_url}}) no-repeat center center / cover;"></div>
-            <div class="infos">
+    <div class="cards">
+        <div id="create-teachers" class="card">
+            <section class="imagem" style="background: url({{teachers.avatar_url}}) no-repeat center center / cover;"></section>
+            <section class="detalhes">
 
                 <div class="item">
                     <h1>Nome do Professor</h1>
@@ -45,7 +45,7 @@
                         <button type="submit">Deletar</button>
                     </form>
                 </div>
-            </div>
+            </section>
 
         </div>
     </div>
