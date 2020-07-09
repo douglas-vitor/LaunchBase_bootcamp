@@ -17,9 +17,20 @@
             "birth": 795657600000,
             "education": "medio",
             "type_class": "distancia",
-            "area": "Programação, Automação, Design",
+            "area": "Programação, Automação",
             "created_at": 1594159293822
         }
     ],
-    "students": []
+    "students": [
+        {
+            "id": 1,
+            "avatar_url": "https://assets.papelpop.com/wp-content/uploads/2020/04/wonder-woman-1984-general.jpg",
+            "name": "Diana",
+            "birth": 818726400000,
+            "education": "superior",
+            "type_class": "presencial",
+            "area": "Artes",
+            "created_at": 1594250736798
+        }
+    ]
 }

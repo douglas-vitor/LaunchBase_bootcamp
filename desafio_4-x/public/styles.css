@@ -71,7 +71,7 @@ header {
     gap: 10px;
 }
 .card,
-.cards table {
+.table-container {
     min-width: 95%;
     min-height: 500px;
     background-color: white;
@@ -195,6 +195,7 @@ header {
 }
 
 /* Table */
+
 .cards table {
     color: black;
     display: inline-block;
@@ -259,4 +260,28 @@ tbody tr td span[id="area"] {
 tbody tr td span[id="area"] {
     padding: 4px 8px;
     margin-right: 5px;
+}
+
+/* Active menu */
+.active {
+    font-weight: bold;
+    color: var(--color-red);
+    border-bottom: 2px solid var(--color-red);
+    padding-bottom: 3px;
+}
+thead tr:first-child th {
+    margin: 0;
+    border: none;
+    padding: 0 0 20px 0;
+    text-align: left;
+}
+.table-container a[id="new-reg"] {
+    background-color: var(--color-red);
+    padding: 8px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+    font-weight: bold;
 }

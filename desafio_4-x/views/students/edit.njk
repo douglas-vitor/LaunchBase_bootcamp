@@ -1,0 +1,16 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <form action="/students?_method=PUT" method="POST">
+        <div class="cards">
+            <div class="card">
+                <section class="image" style="background: url({{students.avatar_url}}) no-repeat center center / cover;"></section>
+
+                <div class="detalhes">
+                    {% include "students/fields.njk" %}
+                    <input type="hidden" name="id" value="{{students.id}}">
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock content %}

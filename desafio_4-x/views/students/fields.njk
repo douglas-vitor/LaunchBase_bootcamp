@@ -1,0 +1,40 @@
+<div class="item">
+    <h1>Avatar URL</h1>
+    <input type="url" name="avatar_url" placeholder="http://" value="{{ students.avatar_url }}">
+</div>
+
+<div class="item">
+    <h1>Nome do Professor</h1>
+    <input type="text" name="name" placeholder="Nome" value="{{ students.name }}">
+</div>
+
+<div class="item">
+    <h1>Data de Nascimento</h1>
+    <input type="date" name="birth" value="{{ students.birth }}">
+</div>
+
+<div class="item">
+    <h1>Escolaridade</h1>
+    <select name="education">
+        <option value="fundamental" {% if students.education == "fundamental" %} selected {% endif %}>Ensino fundamental</option>
+        <option value="medio" {% if students.education == "medio" %} selected {% endif %}>Ensino médio</option>
+        <option value="superior" {% if students.education == "superior" %} selected {% endif %}>Ensino superior Completo</option>
+        <option value="mestrado" {% if students.education == "mestrado" %} selected {% endif %}>Mestrado</option>
+        <option value="doutorado" {% if students.education == "doutorado" %} selected {% endif %}>Doutorado</option>
+    </select>
+</div>
+
+<div class="item">
+    <h1>Tipo de aula</h1>
+    <input type="radio" name="type_class" value="presencial" {% if students.type_class == "presencial" %} checked="checked" {% endif %}>
+    Presencial
+    <input type="radio" name="type_class" value="distancia" {% if students.type_class == "distancia" %} checked="checked" {% endif %}>
+    À distância
+</div>
+
+<div class="item">
+    <h1>Área de atuação</h1>
+    <input type="text" name="area" placeholder="Separe as áreas por virgula" value="{{ students.area }}">
+</div>
+
+<button type="submit">Salvar</button>

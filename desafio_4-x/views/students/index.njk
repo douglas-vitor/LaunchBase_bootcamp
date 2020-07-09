@@ -6,7 +6,7 @@
             <thead>
                 <tr>
                     <th>
-                        <a id="new-reg" href="/teachers/create">Novo</a>
+                        <a id="new-reg" href="/students/create">Novo</a>
 
                     </th>
                 </tr>
@@ -17,14 +17,14 @@
                 </tr>
             </thead>
             <tbody>
-                {% for teacher in teachers %}
+                {% for student in students %}
                     <tr>
                         <td>
-                            <span style="background-image: url({{teacher.avatar_url}});"></span>
-                            {{teacher.name}}</td>
+                            <span style="background-image: url({{student.avatar_url}});"></span>
+                            {{student.name}}</td>
 
                         <td>
-                            {% for area in teacher
+                            {% for area in student
                                 .area
                                 .split(",") %}
                                 <span id="area">{{area}}</span>
@@ -32,11 +32,12 @@
                         </td>
 
                         <td>
-                            <a href="teachers/{{teacher.id}}">Detalhes</a>
+                            <a href="students/{{student.id}}">Detalhes</a>
                         </td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
+
     </div>
 {% endblock content %}

@@ -19,9 +19,4 @@ nunjucks.configure("views", {
 })
 
 
-
-
-
-
-
 server.listen(5000)

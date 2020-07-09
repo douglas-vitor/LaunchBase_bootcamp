@@ -1,13 +1,13 @@
 {% extends "layout.njk" %}
 
 {% block content %}
-    <form id="create-teachers" action="/teachers" method="POST">
+    <form id="create-students" action="/students" method="POST">
 
         <div class="cards">
             <div class="card">
                 <section class="imagem" style="background: url(https://source.unsplash.com/collection/517198/500x500) no-repeat center center / cover;"></section>
                 <section class="detalhes">
-                    {% include "teachers/fields.njk" %}
+                    {% include "students/fields.njk" %}
                 </section>
 
             </div>
