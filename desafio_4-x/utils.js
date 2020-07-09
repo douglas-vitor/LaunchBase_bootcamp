@@ -44,5 +44,27 @@ module.exports = {
         }
 
         return formation_teacher
+    },
+    grade: function(education) {
+        let formation_teacher = ""
+        if(education == "5EF") {
+            formation_teacher = "5º Ano do Ensino Fundamental"
+        } else if(education == "6EF") {
+            formation_teacher = "6º Ano do Ensino Fundamental"
+        } else if(education == "7EF") {
+            formation_teacher = "7º Ano do Ensino Fundamental"
+        } else if(education == "8EF") {
+            formation_teacher = "8º Ano do Ensino Fundamental"
+        } else if(education == "9EF") {
+            formation_teacher = "9º Ano do Ensino Fundamental"
+        } else if(education == "1EM") {
+            formation_teacher = "1º Ano do Ensino Médio"
+        } else if(education == "2EM") {
+            formation_teacher = "2º Ano do Ensino Médio"
+        } else if(education == "3EM") {
+            formation_teacher = "3º Ano do Ensino Médio"
+        }
+
+        return formation_teacher
     }
 }

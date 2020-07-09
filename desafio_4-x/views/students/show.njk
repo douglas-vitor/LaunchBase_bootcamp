@@ -7,43 +7,37 @@
             <section class="detalhes">
 
                 <div class="item">
-                    <h1>Nome do Professor</h1>
+                    <h1>Nome do Aluno</h1>
                     <h2>{{students.name}}</h2>
                 </div>
 
                 <div class="item">
-                    <h1>Idade</h1>
-                    <h2>{{students.age}}</h2>
+                    <h1>Aniversário</h1>
+                    <h2>{{students.birth}}</h2>
                 </div>
 
                 <div class="item">
-                    <h1>Graduação</h1>
+                    <h1>Email</h1>
+                    <h2>{{students.email}}</h2>
+                </div>
+
+                <div class="item">
+                    <h1>Ano Escolar</h1>
                     <h2>{{students.education}}</h2>
                 </div>
 
                 <div class="item">
-                    <h1>Tipo de aula</h1>
-                    <h2>{{students.type_class}}</h2>
-                </div>
-
-                <div class="item">
-                    <h1>Acompanhamento</h1>
-                    {% for area in students.area %}
-                        <span>{{area}}</span>
-                    {% endfor %}
-                </div>
-
-                <div class="item">
-                    <h1>Desde</h1>
-                    <h2>{{students.created_at}}</h2>
+                    <h1>Carga Horária Semanal</h1>
+                    <h2>{{students.studyload}}</h2>
                 </div>
 
                 <div class="container-buttons">
                     <a class="submit-edit" href="/students/{{students.id}}/edit">Editar</a>
-                    <form action="/students?_method=DELETE" method="POST">
+                    <form id="form-delete" action="/students?_method=DELETE" method="POST">
                         <input type="hidden" name="id" value="{{students.id}}">
                         <button type="submit">Deletar</button>
                     </form>
+                    {% include "../confirm.njk" %}
                 </div>
             </section>
 

@@ -12,7 +12,8 @@
                 </tr>
                 <tr>
                     <th>Nome completo</th>
-                    <th>Acompanhamento</th>
+                    <th>Email</th>
+                    <th>Ano Escolar</th>
                     <th>Ação</th>
                 </tr>
             </thead>
@@ -24,11 +25,11 @@
                             {{student.name}}</td>
 
                         <td>
-                            {% for area in student
-                                .area
-                                .split(",") %}
-                                <span id="area">{{area}}</span>
-                            {% endfor %}
+                            {{student.email}}
+                        </td>
+
+                        <td>
+                            {{student.education}}
                         </td>
 
                         <td>

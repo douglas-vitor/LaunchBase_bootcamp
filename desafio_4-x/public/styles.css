@@ -211,6 +211,11 @@ header {
 .cards table thead tr,
 .cards table tbody tr {
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.cards table[id="teacher"] thead tr,
+.cards table[id="teacher"] tbody tr {
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 .cards table thead tr,
@@ -284,4 +289,25 @@ thead tr:first-child th {
     font-size: 12px;
     border-radius: 4px;
     font-weight: bold;
+}
+
+/* Not-found */
+.not-found,
+.err {
+    width: 100%;
+    height: auto;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    color: #999999;
+    font-weight: normal;
+    position: absolute;
+    top: 30%;
+}
+.not-found h2,
+.err h2 {
+    font-size: 14px;
 }

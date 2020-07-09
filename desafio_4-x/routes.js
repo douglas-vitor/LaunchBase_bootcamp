@@ -24,5 +24,8 @@ routes.get("/students/:id/edit", students.edit)
 routes.put("/students", students.update)
 routes.delete("/students", students.delete)
 
+routes.use(function(req, res) {
+    return res.status(404).render("not-found")
+})
 
 module.exports = routes
