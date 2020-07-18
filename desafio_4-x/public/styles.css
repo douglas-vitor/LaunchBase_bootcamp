@@ -240,6 +240,12 @@ tbody tr td {
     justify-content: center;
     box-sizing: border-box;
 }
+tbody tr td:first-child {
+    justify-content: left;
+}
+tbody tr td:last-child {
+    justify-content: right;
+}
 tbody tr td:first-child span {
     min-width: 40px;
     height: 40px;
