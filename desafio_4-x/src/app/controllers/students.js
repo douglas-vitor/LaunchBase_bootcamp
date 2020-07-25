@@ -1,15 +1,15 @@
 const fs = require('fs')
-const data = require("../data.json")
-const { age, date, graduation } = require("../utils")
+const data = require("../../config/db")
+const { age, date, graduation, grade } = require("../../lib/utils")
 
 // Index
 exports.index = function (req, res) {
-    return res.render("teachers/index", { teachers: data.teachers })
+    return res.render("students/index", { students: data.students })
 }
 
 // Create
 exports.create = function (req, res) {
-    return res.render("teachers/create")
+    return res.render("students/create")
 }
 
 // Post
@@ -22,21 +22,25 @@ exports.post = function (req, res) {
         }
     }
 
-    let { avatar_url, name, birth, education, type_class, area } = req.body
+    let { avatar_url, name, birth, email, education, studyload } = req.body
 
     birth = Date.parse(birth)
-    const created_at = Date.now()
-    const id = Number(data.teachers.length + 1)
 
-    data.teachers.push({
+    let id = 1
+    const lastStudent = data.students[data.students.length - 1]
+    if (lastStudent) {
+        id = lastStudent.id + 1
+    }
+
+
+    data.students.push({
         id,
         avatar_url,
         name,
+        email,
         birth,
         education,
-        type_class,
-        area,
-        created_at
+        studyload
     })
 
     fs.writeFile("data.json", JSON.stringify(data, null, 4), function (err) {
@@ -44,7 +48,7 @@ exports.post = function (req, res) {
             let erro = "Erro ao gravar arquivo."
             return res.render("err", { erro: erro })
         }
-        return res.redirect("/teachers")
+        return res.redirect("/students")
     })
 
 
@@ -54,41 +58,39 @@ exports.post = function (req, res) {
 // Show
 exports.show = function (req, res) {
     const { id } = req.params
-    const foundTeachers = data.teachers.find(function (teacher) {
-        return teacher.id == id
+    const foundStudents = data.students.find(function (student) {
+        return student.id == id
     })
-    if (!foundTeachers) {
-        let erro = "Professor não encontrado."
+    if (!foundStudents) {
+        let erro = "Estudante não encontrado."
         return res.render("err", { erro: erro })
     }
 
-    const teacher = {
-        ...foundTeachers,
-        age: age(foundTeachers.birth),
-        education: graduation(foundTeachers.education),
-        area: foundTeachers.area.split(","),
-        created_at: new Intl.DateTimeFormat("pt-br").format(foundTeachers.created_at)
+    const student = {
+        ...foundStudents,
+        birth: date(foundStudents.birth).birthDay,
+        education: grade(foundStudents.education)
     }
-    return res.render("teachers/show", { teachers: teacher })
+    return res.render("students/show", { students: student })
 }
 
 // Edit
 exports.edit = function (req, res) {
     const { id } = req.params
-    const foundTeachers = data.teachers.find(function (teacher) {
-        return teacher.id == id
+    const foundStudents = data.students.find(function (student) {
+        return student.id == id
     })
-    if (!foundTeachers) {
-        let erro = "Professor não encontrado."
+    if (!foundStudents) {
+        let erro = "Estudante não encontrado."
         return res.render("err", { erro: erro })
     }
 
-    const teacher = {
-        ...foundTeachers,
-        birth: date(foundTeachers.birth).iso
+    const student = {
+        ...foundStudents,
+        birth: date(foundStudents.birth).iso
     }
 
-    return res.render("teachers/edit", { teachers: teacher })
+    return res.render("students/edit", { students: student })
 }
 
 // Put
@@ -96,49 +98,49 @@ exports.update = function (req, res) {
     const { id } = req.body
     let index = 0
 
-    const foundTeachers = data.teachers.find(function (teacher, foundIndex) {
-        if (id == teacher.id) {
+    const foundStudents = data.students.find(function (student, foundIndex) {
+        if (id == student.id) {
             index = foundIndex
             return true
         }
     })
-    if (!foundTeachers) {
-        let erro = "Professor não encontrado."
+    if (!foundStudents) {
+        let erro = "Estudante não encontrado."
         return res.render("err", { erro: erro })
     }
 
-    const teacher = {
-        ...foundTeachers,
+    const student = {
+        ...foundStudents,
         ...req.body,
         birth: Date.parse(req.body.birth),
         id: Number(req.body.id)
     }
 
-    data.teachers[index] = teacher
+    data.students[index] = student
 
     fs.writeFile("data.json", JSON.stringify(data, null, 4), function (err) {
         if (err) {
             let erro = "Erro ao gravar arquivo."
             return res.render("err", { erro: erro })
         }
-        return res.redirect(`/teachers/${id}`)
+        return res.redirect(`/students/${id}`)
     })
 }
 
 // Delete
 exports.delete = function (req, res) {
     const { id } = req.body
-    const filteredTeachers = data.teachers.filter(function (teacher) {
-        return teacher.id != id
+    const filteredStudents = data.students.filter(function (student) {
+        return student.id != id
     })
 
-    data.teachers = filteredTeachers
+    data.students = filteredStudents
 
     fs.writeFile("data.json", JSON.stringify(data, null, 4), function (err) {
         if (err) {
             let erro = "Erro ao gravar arquivo."
             return res.render("err", { erro: erro })
         }
-        return res.redirect("/teachers")
+        return res.redirect("/students")
     })
 }
