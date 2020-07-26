@@ -1,17 +1,17 @@
 module.exports = {
-    age: function age(timestamp) {
+    age(timestamp) {
         const today = new Date()
         const birthDate = new Date(timestamp)
 
         let age = today.getFullYear() - birthDate.getFullYear()
         const month = today.getMonth() - birthDate.getMonth()
 
-        if (month < 0 || month == 0 && today.getDate() < birthDate()) {
+        if(month < 0 || month == 0 && today.getDate() < birthDate.getDate()) {
             age = age - 1
         }
         return age
     },
-    date: function(timestamp) {
+    date(timestamp) {
         const date = new Date(timestamp)
 
         // yyyy
@@ -26,10 +26,11 @@ module.exports = {
             month,
             year,
             iso: `${year}-${month}-${day}`,
-            birthDay: `${day}/${month}`
+            birthDay: `${day}/${month}`,
+            format: `${day}/${month}/${year}`
         }
     },
-    graduation: function(education) {
+    graduation(education) {
         let formation_teacher = ""
         if(education == "fundamental") {
             formation_teacher = "Ensino fundamental"
@@ -45,7 +46,7 @@ module.exports = {
 
         return formation_teacher
     },
-    grade: function(education) {
+    grade(education) {
         let formation_teacher = ""
         if(education == "5EF") {
             formation_teacher = "5º Ano do Ensino Fundamental"

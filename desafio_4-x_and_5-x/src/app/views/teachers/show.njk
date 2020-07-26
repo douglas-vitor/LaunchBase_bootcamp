@@ -3,45 +3,45 @@
 {% block content %}
     <div class="cards">
         <div id="create-teachers" class="card">
-            <section class="imagem" style="background: url({{teachers.avatar_url}}) no-repeat center center / cover;"></section>
+            <section class="imagem" style="background: url({{teacher.avatar_url}}) no-repeat center center / cover;"></section>
             <section class="detalhes">
 
                 <div class="item">
                     <h1>Nome do Professor</h1>
-                    <h2>{{teachers.name}}</h2>
+                    <h2>{{teacher.name}}</h2>
                 </div>
 
                 <div class="item">
                     <h1>Idade</h1>
-                    <h2>{{teachers.age}}</h2>
+                    <h2>{{teacher.age}}</h2>
                 </div>
 
                 <div class="item">
                     <h1>Graduação</h1>
-                    <h2>{{teachers.education}}</h2>
+                    <h2>{{teacher.education}}</h2>
                 </div>
 
                 <div class="item">
                     <h1>Tipo de aula</h1>
-                    <h2>{{teachers.type_class}}</h2>
+                    <h2>{{teacher.type_class}}</h2>
                 </div>
 
                 <div class="item">
                     <h1>Acompanhamento</h1>
-                    {% for area in teachers.area %}
+                    {% for area in teacher.area %}
                         <span>{{area}}</span>
                     {% endfor %}
                 </div>
 
                 <div class="item">
                     <h1>Desde</h1>
-                    <h2>{{teachers.created_at}}</h2>
+                    <h2>{{teacher.created_at}}</h2>
                 </div>
 
                 <div class="container-buttons">
-                    <a class="submit-edit" href="/teachers/{{teachers.id}}/edit">Editar</a>
+                    <a class="submit-edit" href="/teachers/{{teacher.id}}/edit">Editar</a>
                     <form action="/teachers?_method=DELETE" method="POST">
-                        <input type="hidden" name="id" value="{{teachers.id}}">
+                        <input type="hidden" name="id" value="{{teacher.id}}">
                         <button type="submit">Deletar</button>
                     </form>
                     {% include "../confirm.njk" %}

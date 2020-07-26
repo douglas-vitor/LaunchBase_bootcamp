@@ -1,9 +1,16 @@
-const data = require("../../config/db")
+const db = require("../../config/db")
 const { age, date, graduation } = require("../../lib/utils")
+const Teacher = require("../models/Teacher")
 
 module.exports = {
     index(req, res) {
-        return res.render("teachers/index", { teachers: data.teachers })
+        db.query(`SELECT * FROM teachers`, function(err, results) {
+            if(err) {
+                throw `[Database error] : ${err}`
+            }
+
+        return res.render("teachers/index", { teachers: results.rows })
+        })
     },
     create(req, res) {
         return res.render("teachers/create")
@@ -17,91 +24,62 @@ module.exports = {
             }
         }
     
-        let { avatar_url, name, birth, education, type_class, area } = req.body
-    
-        birth = Date.parse(birth)
-        const created_at = Date.now()
-        const id = Number(data.teachers.length + 1)
-    
-        data.teachers.push({
-            id,
-            avatar_url,
-            name,
-            birth,
-            education,
-            type_class,
-            area,
-            created_at
+        Teacher.create(req.body, function(teacher) {
+            return res.redirect(`teachers/${teacher.id}`)
         })
     },
     show(req, res) {
-        const { id } = req.params
-        const foundTeachers = data.teachers.find(function (teacher) {
-            return teacher.id == id
+        Teacher.find(req.params.id, function(teacher) {
+            if (!teacher) {
+                let erro = "Professor não encontrado."
+                return res.render("err", { erro: erro })
+            }
+
+            teacher.education = graduation(teacher.education_level)
+            teacher.age = age(teacher.birth_date)
+            teacher.area = teacher.subjects_taught.split(",")
+            teacher.type_class = teacher.class_type
+            teacher.created_at = date(teacher.created_at).format
+
+            return res.render("teachers/show", { teacher })
         })
-        if (!foundTeachers) {
-            let erro = "Professor não encontrado."
-            return res.render("err", { erro: erro })
-        }
-    
-        const teacher = {
-            ...foundTeachers,
-            age: age(foundTeachers.birth),
-            education: graduation(foundTeachers.education),
-            area: foundTeachers.area.split(","),
-            created_at: new Intl.DateTimeFormat("pt-br").format(foundTeachers.created_at)
-        }
-        return res.render("teachers/show", { teachers: teacher })
     },
     edit(req, res) {
-        const { id } = req.params
-        const foundTeachers = data.teachers.find(function (teacher) {
-            return teacher.id == id
-        })
-        if (!foundTeachers) {
-            let erro = "Professor não encontrado."
-            return res.render("err", { erro: erro })
-        }
-    
-        const teacher = {
-            ...foundTeachers,
-            birth: date(foundTeachers.birth).iso
-        }
-    
-        return res.render("teachers/edit", { teachers: teacher })
+        Teacher.find(req.params.id, function(teacher) {
+            if(!teacher) {
+                let erro = "Professor não encontrado."
+                return res.render("err", { erro: erro })
+            }
+
+            teacher.birth = date(teacher.birth_date).iso
+
+            return res.render("teachers/edit", { teacher })
+        })    
     },
     update(req, res) {
-        const { id } = req.body
-        let index = 0
-    
-        const foundTeachers = data.teachers.find(function (teacher, foundIndex) {
-            if (id == teacher.id) {
-                index = foundIndex
-                return true
+        const keys = Object.keys(req.body)
+        for (key of keys) {
+            if(req.body[key] == "") {
+                let erro = "Por favor, preencha todos os campos."
+                return res.render("err", { erro: erro })
             }
-        })
-        if (!foundTeachers) {
-            let erro = "Professor não encontrado."
-            return res.render("err", { erro: erro })
         }
-    
-        const teacher = {
-            ...foundTeachers,
+
+        let data = {
             ...req.body,
-            birth: Date.parse(req.body.birth),
-            id: Number(req.body.id)
+            birth_date: req.body.birth,
+            education_level: req.body.education,
+            class_type: req.body.type_class,
+            subjects_taught: req.body.area
         }
-    
-        data.teachers[index] = teacher
-        
+        Teacher.update(data, function() {
+            return res.redirect(`teachers/${req.body.id}`)
+        })
     },
     delete(req, res) {
-        const { id } = req.body
-        const filteredTeachers = data.teachers.filter(function (teacher) {
-            return teacher.id != id
+        Teacher.delete(req.body.id, function() {
+            return res.redirect(`/teachers`)
         })
-    
-        data.teachers = filteredTeachers
       
     }
 }

@@ -25,7 +25,7 @@
 
                         <td>
                             {% for area in teacher
-                                .area
+                                .subjects_taught
                                 .split(",") %}
                                 <span id="area">{{area}}</span>
                             {% endfor %}

@@ -1,40 +1,40 @@
 <div class="item">
     <h1>Avatar URL</h1>
-    <input type="url" name="avatar_url" placeholder="http://" value="{{ students.avatar_url }}">
+    <input type="url" name="avatar_url" placeholder="http://" value="{{ student.avatar_url }}">
 </div>
 
 <div class="item">
     <h1>Nome do Aluno</h1>
-    <input type="text" name="name" placeholder="Nome" value="{{ students.name }}">
+    <input type="text" name="name" placeholder="Nome" value="{{ student.name }}">
 </div>
 
 <div class="item">
     <h1>Data de Nascimento</h1>
-    <input type="date" name="birth" value="{{ students.birth }}">
+    <input type="date" name="birth" value="{{ student.birth }}">
 </div>
 
 <div class="item">
     <h1>Email</h1>
-    <input type="email" name="email" placeholder="Email" value="{{ students.email }}">
+    <input type="email" name="email" placeholder="Email" value="{{ student.email }}">
 </div>
 
 <div class="item">
     <h1>Ano Escolar</h1>
     <select name="education">
-        <option value="5EF" {% if students.education == "5EF" %} selected {% endif %}>5º fundamental</option>
-        <option value="6EF" {% if students.education == "6EF" %} selected {% endif %}>6º fundamental</option>
-        <option value="7EF" {% if students.education == "7EF" %} selected {% endif %}>7º fundamental</option>
-        <option value="8EF" {% if students.education == "8EF" %} selected {% endif %}>8º fundamental</option>
-        <option value="9EF" {% if students.education == "9EF" %} selected {% endif %}>9º fundamental</option>
-        <option value="1EM" {% if students.education == "1EM" %} selected {% endif %}>1º médio</option>
-        <option value="2EM" {% if students.education == "2EM" %} selected {% endif %}>2º médio</option>
-        <option value="3EM" {% if students.education == "3EM" %} selected {% endif %}>3º médio</option>
+        <option value="5EF" {% if student.education_level == "5EF" %} selected {% endif %}>5º fundamental</option>
+        <option value="6EF" {% if student.education_level == "6EF" %} selected {% endif %}>6º fundamental</option>
+        <option value="7EF" {% if student.education_level == "7EF" %} selected {% endif %}>7º fundamental</option>
+        <option value="8EF" {% if student.education_level == "8EF" %} selected {% endif %}>8º fundamental</option>
+        <option value="9EF" {% if student.education_level == "9EF" %} selected {% endif %}>9º fundamental</option>
+        <option value="1EM" {% if student.education_level == "1EM" %} selected {% endif %}>1º médio</option>
+        <option value="2EM" {% if student.education_level == "2EM" %} selected {% endif %}>2º médio</option>
+        <option value="3EM" {% if student.education_level == "3EM" %} selected {% endif %}>3º médio</option>
     </select>
 </div>
 
 <div class="item">
     <h1>Carga horária semanal</h1>
-    <input type="number" name="studyload" placeholder="Carga horaria semanal" value="{{ students.studyload }}">
+    <input type="number" name="studyload" placeholder="Carga horaria semanal" value="{{ student.studyload }}">
 </div>
 
 <button type="submit">Salvar</button>

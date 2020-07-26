@@ -4,11 +4,11 @@
     <form action="/students?_method=PUT" method="POST">
         <div class="cards">
             <div class="card">
-                <section class="image" style="background: url({{students.avatar_url}}) no-repeat center center / cover;"></section>
+                <section class="image" style="background: url({{student.avatar_url}}) no-repeat center center / cover;"></section>
 
                 <div class="detalhes">
                     {% include "students/fields.njk" %}
-                    <input type="hidden" name="id" value="{{students.id}}">
+                    <input type="hidden" name="id" value="{{student.id}}">
                 </div>
             </div>
         </div>

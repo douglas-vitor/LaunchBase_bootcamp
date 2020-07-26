@@ -3,38 +3,38 @@
 {% block content %}
     <div class="cards">
         <div id="create-students" class="card">
-            <section class="imagem" style="background: url({{students.avatar_url}}) no-repeat center center / cover;"></section>
+            <section class="imagem" style="background: url({{student.avatar_url}}) no-repeat center center / cover;"></section>
             <section class="detalhes">
 
                 <div class="item">
                     <h1>Nome do Aluno</h1>
-                    <h2>{{students.name}}</h2>
+                    <h2>{{student.name}}</h2>
                 </div>
 
                 <div class="item">
                     <h1>Aniversário</h1>
-                    <h2>{{students.birth}}</h2>
+                    <h2>{{student.birth}}</h2>
                 </div>
 
                 <div class="item">
                     <h1>Email</h1>
-                    <h2>{{students.email}}</h2>
+                    <h2>{{student.email}}</h2>
                 </div>
 
                 <div class="item">
                     <h1>Ano Escolar</h1>
-                    <h2>{{students.education}}</h2>
+                    <h2>{{student.education}}</h2>
                 </div>
 
                 <div class="item">
                     <h1>Carga Horária Semanal</h1>
-                    <h2>{{students.studyload}}</h2>
+                    <h2>{{student.studyload}}</h2>
                 </div>
 
                 <div class="container-buttons">
-                    <a class="submit-edit" href="/students/{{students.id}}/edit">Editar</a>
+                    <a class="submit-edit" href="/students/{{student.id}}/edit">Editar</a>
                     <form id="form-delete" action="/students?_method=DELETE" method="POST">
-                        <input type="hidden" name="id" value="{{students.id}}">
+                        <input type="hidden" name="id" value="{{student.id}}">
                         <button type="submit">Deletar</button>
                     </form>
                     {% include "../confirm.njk" %}

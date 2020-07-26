@@ -2,8 +2,7 @@
 
 :root {
     --color-green : #50fa7b;
-    --color-red : #7159c1;
-    --color-red: rgb(220, 0, 0);
+    --color-yellow: #DAA520;
     --color-gray: rgb(165, 165, 165);
     --color-medium-black: rgb(49, 49, 49);
 }
@@ -13,15 +12,24 @@
     border: none;
     padding: 0;
 }
+html, body {
+    width: 100%;
+    height: 100%;
+    background-image: url("https://images.unsplash.com/photo-1472289065668-ce650ac443d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80");
+    background-position: center center;
+    background-repeat: no-repeat no-repeat;
+    background-size: cover;
+
+}
 body {
-    background: #282a36;
+/*    background: #282a36;*/
     font-family: 'Roboto', sans-serif;
     color: white;
 }
 header {
     padding: 16px;
-    border-bottom: 1px solid var(--color-red); /*#333*/
-    background-color: rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--color-yellow); /*#333*/
+    background-color: rgba(0, 0, 0, 0.5); /*0.1*/
     box-sizing: border-box;
 }
 .links {
@@ -38,11 +46,11 @@ header {
     margin-left: 32px;
 }
 .links a:hover {
-    color: var(--color-red);
+    color: var(--color-yellow);
 }
 .links a.active {
     font-weight: bold;
-    color: var(--color-red);
+    color: var(--color-yellow);
 }
 .links a::after {
     content: "";
@@ -56,7 +64,7 @@ header {
 .links a:hover::after {
     width: 100%;
     transition: width 300ms cubic-bezier(0.36,-0.35, 1, 1.05);
-    background-color: var(--color-red);
+    background-color: var(--color-yellow);
 }
 
 /* Cards */
@@ -72,16 +80,17 @@ header {
 }
 .card,
 .table-container {
-    min-width: 95%;
+    width: 95%;
     min-height: 500px;
     background-color: white;
     padding: 5px 5px;
-    border: 1px solid var(--color-red);
+    border: 1px solid var(--color-yellow);
     border-radius: 20px;
-    box-shadow: -5px 5px 10px -3px var(--color-red);
+    box-shadow: -5px 5px 10px -3px var(--color-yellow);
     animation: card 200ms ease-in;
     display: grid;
     grid-template-columns: 40% 60%;
+    box-sizing: border-box;
 }
 
 @keyframes card {
@@ -157,7 +166,7 @@ header {
     font-weight: normal;
 }
 .detalhes .item span {
-    background-color: var(--color-red);
+    background-color: var(--color-yellow);
     padding: 5px 10px;
     border-radius: 10px;
     font-weight: bold;
@@ -191,7 +200,7 @@ header {
     text-align: center;
 }
 .detalhes .container-buttons button {
-    background-color: var(--color-red);
+    background-color: rgb(255, 0, 0);
 }
 
 /* Table */
@@ -228,8 +237,11 @@ td, th {
 }
 th {
     text-transform: uppercase;
-    color: var(--color-red);
+    color: var(--color-yellow);
     font-size: 14px;
+}
+thead tr:nth-child(2) th:first-child {
+    text-align: left;
 }
 tbody tr:last-child td {
     border-bottom: none;
@@ -240,11 +252,18 @@ tbody tr td {
     justify-content: center;
     box-sizing: border-box;
 }
+tbody tr td:nth-child(2) {
+    display: inline-block;
+}
+tbody tr td[id="student_email"] {
+    display: grid;
+    align-items: center;
+}
 tbody tr td:first-child {
     justify-content: left;
 }
 tbody tr td:last-child {
-    justify-content: right;
+    justify-content: center;
 }
 tbody tr td:first-child span {
     min-width: 40px;
@@ -259,7 +278,7 @@ tbody tr td:first-child span {
 }
 tbody tr td:last-child a,
 tbody tr td span[id="area"] {
-    background-color: var(--color-red);
+    background-color: var(--color-yellow);
     padding: 8px 16px;
     text-decoration: none;
     text-transform: uppercase;
@@ -269,15 +288,17 @@ tbody tr td span[id="area"] {
     font-weight: bold;
 }
 tbody tr td span[id="area"] {
+    display: inline-block;
     padding: 4px 8px;
     margin-right: 5px;
+    margin-bottom: 5px;
 }
 
 /* Active menu */
 .active {
     font-weight: bold;
-    color: var(--color-red);
-    border-bottom: 2px solid var(--color-red);
+    color: var(--color-yellow);
+    border-bottom: 2px solid var(--color-yellow);
     padding-bottom: 3px;
 }
 thead tr:first-child th {
@@ -287,7 +308,7 @@ thead tr:first-child th {
     text-align: left;
 }
 .table-container a[id="new-reg"] {
-    background-color: var(--color-red);
+    background-color: var(--color-yellow);
     padding: 8px 16px;
     text-decoration: none;
     text-transform: uppercase;
