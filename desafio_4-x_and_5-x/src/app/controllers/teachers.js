@@ -4,13 +4,16 @@ const Teacher = require("../models/Teacher")
 
 module.exports = {
     index(req, res) {
-        db.query(`SELECT * FROM teachers`, function(err, results) {
-            if(err) {
-                throw `[Database error] : ${err}`
-            }
-
-        return res.render("teachers/index", { teachers: results.rows })
-        })
+        let {filter} = req.query
+        if(filter) {
+            Teacher.findBy(filter, function(datamy) {
+            return res.render("teachers/index", { teachers: datamy, filter})
+            })
+        } else {
+            Teacher.all(function(teachers) {
+                return res.render("teachers/index", { teachers })
+            })
+        }
     },
     create(req, res) {
         return res.render("teachers/create")

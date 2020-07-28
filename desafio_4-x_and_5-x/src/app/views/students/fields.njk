@@ -37,4 +37,15 @@
     <input type="number" name="studyload" placeholder="Carga horaria semanal" value="{{ student.studyload }}">
 </div>
 
+<div class="item">
+    <h1>Teacher</h1>
+    <select name="teacher_id">
+        {% for teacher in options %}
+            <option value="{{teacher.id}}" {% if student.teacher_id == teacher.id %} selected {% endif %}>
+                {{teacher.name}}
+            </option>
+        {% endfor %}
+    </select>
+</div>
+
 <button type="submit">Salvar</button>

@@ -69,7 +69,7 @@ header {
 }
 
 /* Cards */
-.cards {
+.cards-more {
     width: 100%;
     min-height: 100%;
     padding: 20px 20px;
@@ -78,6 +78,20 @@ header {
     grid-template-columns: 1fr;
     justify-items: center;
     gap: 10px;
+}
+.cards {
+    width: 95%;
+    margin: 2.5% auto;
+    min-height: 500px;
+    background-color: white;
+    padding: 5px 5px;
+    border: 1px solid var(--color-yellow);
+    border-radius: 20px;
+    box-shadow: -5px 5px 10px -3px var(--color-yellow);
+    animation: card 200ms ease-in;
+    display: grid;
+    grid-template: 64px 1fr 30px / 1fr;
+    box-sizing: border-box;
 }
 .card,
 .table-container {
@@ -211,7 +225,7 @@ header {
     display: inline-block;
     box-sizing: border-box;
     padding: 20px;
-    width: 95%;
+    width: 100%;
 }
 .cards table thead,
 .cards table tbody {
@@ -226,10 +240,13 @@ header {
 .cards table[id="teacher"] thead tr,
 .cards table[id="teacher"] tbody tr {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .cards table thead tr,
 .cards table tbody tr {
+    text-align: center;
+}
+.cards table[id="teacher"] tr th {
     text-align: center;
 }
 td, th {
@@ -241,7 +258,7 @@ th {
     color: var(--color-yellow);
     font-size: 14px;
 }
-thead tr:nth-child(2) th:first-child {
+.cards table thead tr th:first-child {
     text-align: left;
 }
 tbody tr:last-child td {
@@ -278,7 +295,9 @@ tbody tr td:first-child span {
     margin-right: 10px;
 }
 tbody tr td:last-child a,
-tbody tr td span[id="area"] {
+tbody tr td span[id="area"],
+.cards .header a,
+.cards .header form button {
     background-color: var(--color-yellow);
     padding: 8px 16px;
     text-decoration: none;
@@ -287,6 +306,7 @@ tbody tr td span[id="area"] {
     font-size: 12px;
     border-radius: 4px;
     font-weight: bold;
+    cursor: pointer;
 }
 tbody tr td span[id="area"] {
     display: inline-block;
@@ -338,4 +358,30 @@ thead tr:first-child th {
 .not-found h2,
 .err h2 {
     font-size: 14px;
+}
+
+/* Filter */
+.cards .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+.cards .header a {
+    margin: 0;
+    width: 60px;
+    text-align: center;
+}
+.cards .header form {
+    display: grid;
+    grid-template-columns: 195px 90px;
+    align-items: center;
+    justify-content: right;
+    grid-gap: 8px;
+}
+.cards .header form input {
+    border: 1px solid var(--color-gray);
+    padding: 8px 16px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 195px;
 }

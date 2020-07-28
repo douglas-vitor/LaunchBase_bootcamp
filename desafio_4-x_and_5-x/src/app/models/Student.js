@@ -21,8 +21,9 @@ module.exports = {
                 birth_date,
                 email,
                 education_level,
-                studyload
-            ) VALUES ($1, $2, $3, $4, $5, $6)
+                studyload,
+                teacher_id
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7)
             RETURNING id
         `
         const values = [
@@ -31,7 +32,8 @@ module.exports = {
             date(data.birth).iso,
             data.email,
             data.education,
-            data.studyload
+            data.studyload,
+            data.teacher_id
         ]
 
         db.query(query, values, function(err, results) {
@@ -66,8 +68,9 @@ module.exports = {
             birth_date=($3),
             email=($4),
             education_level=($5),
-            studyload=($6)
-            WHERE id = $7
+            studyload=($6),
+            teacher_id=($7)
+            WHERE id = $8
         `
         const values = [
             data.avatar_url,
@@ -76,6 +79,7 @@ module.exports = {
             data.email,
             data.education,
             data.studyload,
+            data.teacher_id,
             data.id
         ]
 
@@ -98,5 +102,14 @@ module.exports = {
     },
     paginate(params) {
         //?
+    },
+    instructorSelectOptions(callback) {
+        db.query(`SELECT name, id FROM teachers`, function(err, results) {
+            if(err) {
+                throw `[Database error] : ${err}`
+            }
+
+            return callback(results.rows)
+        })
     }
 }

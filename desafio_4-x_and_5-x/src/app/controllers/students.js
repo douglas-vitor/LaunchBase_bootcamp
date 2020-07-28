@@ -1,19 +1,25 @@
 const db = require("../../config/db")
 const { age, date, graduation, grade } = require("../../lib/utils")
 const Student = require("../models/Student")
+const { query } = require("../../config/db")
 
 module.exports = {
     index(req, res) {
-        db.query(`SELECT * FROM students`, function(err, results) {
-            if(err) {
-                throw `[Database error] : ${err}`
-            }
-
-        return res.render("students/index", { students: results.rows })
-        })
+        let {filter} = req.query
+        if(filter) {
+            Student.findBy(filter, function(datamy) {
+            return res.render("students/index", { students: datamy, filter})
+            })
+        } else {
+            Student.all(function(students) {
+                return res.render("students/index", { students })
+            })
+        }
     },
     create(req, res) {
-        return res.render("students/create")
+        Student.instructorSelectOptions(function(options) {
+            return res.render("students/create", { options })
+        })
     },
     post(req, res) {
         const keys = Object.keys(req.body)
@@ -37,7 +43,6 @@ module.exports = {
 
             student.education = grade(student.education_level)
             student.birth = date(student.birth_date).birthDay
-            student.created_at = date(student.created_at).format
 
             return res.render("students/show", { student })
         })
@@ -51,7 +56,9 @@ module.exports = {
 
             student.birth = date(student.birth_date).iso
 
-            return res.render("students/edit", { student })
+            Student.instructorSelectOptions(function(options) {
+                return res.render("students/edit", { student, options })
+            })
         })    
     },
     update(req, res) {

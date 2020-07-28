@@ -2,17 +2,21 @@
 
 {% block content %}
     <div class="cards">
-        <table id="teacher" class="table-container" width="100%">
-            <thead>
-                <tr>
-                    <th>
-                        <a id="new-reg" href="/teachers/create">Novo</a>
 
-                    </th>
-                </tr>
+        <div class="header">
+            <a class="button" href="teachers/create">Novo</a>
+            <form action="/teachers" method="GET">
+                <input type="text" name="filter" placeholder="Nome ou Acompanhamento" value="{{filter}}">
+                <button type="submit">Filtrar</button>
+            </form>
+        </div>
+
+        <table id="teacher" class="" width="100%">
+            <thead>
                 <tr>
                     <th>Nome completo</th>
                     <th>Acompanhamento</th>
+                    <th>Alunos</th>
                     <th>Ação</th>
                 </tr>
             </thead>
@@ -29,6 +33,10 @@
                                 .split(",") %}
                                 <span id="area">{{area}}</span>
                             {% endfor %}
+                        </td>
+
+                        <td>
+                            {{ teacher.total_students }}
                         </td>
 
                         <td>
