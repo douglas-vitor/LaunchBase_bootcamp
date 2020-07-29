@@ -57,9 +57,6 @@ module.exports = {
         callback(results.rows[0])
         })
     },
-    findBy(filter, callback) {
-        //?
-    },
     update(data, callback) {
         const query = `
             UPDATE students SET 
@@ -100,9 +97,6 @@ module.exports = {
             return callback()
         })
     },
-    paginate(params) {
-        //?
-    },
     instructorSelectOptions(callback) {
         db.query(`SELECT name, id FROM teachers`, function(err, results) {
             if(err) {
@@ -110,6 +104,39 @@ module.exports = {
             }
 
             return callback(results.rows)
+        })
+    },
+    paginate(params) {
+        const { filter, limit, offset, callback } = params
+
+        let query = "",
+            filterQuery = "",
+            totalQuery = `(
+                SELECT count(*) FROM students
+            ) AS total`
+
+        if(filter) {
+            filterQuery = `
+            WHERE students.name ILIKE '%${filter}%' 
+            OR students.email ILIKE '%${filter}%' 
+            `
+            totalQuery = `(
+                SELECT count(*) FROM students 
+                ${filterQuery}
+            ) AS total`
+        }
+
+        query = `SELECT students.*, ${totalQuery} 
+        FROM students 
+        ${filterQuery} 
+        LIMIT $1 OFFSET $2
+        `
+
+        db.query(query, [limit, offset], function(err, results) {
+            if(err) {
+                throw `[Database error] : ${err}`
+            }
+            callback(results.rows)
         })
     }
 }

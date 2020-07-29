@@ -1,20 +1,29 @@
 const db = require("../../config/db")
-const { age, date, graduation, grade } = require("../../lib/utils")
+const { date, grade } = require("../../lib/utils")
 const Student = require("../models/Student")
-const { query } = require("../../config/db")
 
 module.exports = {
     index(req, res) {
-        let {filter} = req.query
-        if(filter) {
-            Student.findBy(filter, function(datamy) {
-            return res.render("students/index", { students: datamy, filter})
-            })
-        } else {
-            Student.all(function(students) {
-                return res.render("students/index", { students })
-            })
+        let {filter, page, limit} = req.query
+
+        page = page || 1
+        limit = limit || 10
+        let offset = limit * (page - 1)
+
+        const params = {
+            filter,
+            page,
+            limit,
+            offset,
+            callback(students) {
+                const pagination = {
+                    total: Math.ceil(students[0].total / limit),
+                    page
+                }
+                return res.render("students/index", { students, filter, pagination })
+            }
         }
+        Student.paginate(params)
     },
     create(req, res) {
         Student.instructorSelectOptions(function(options) {
@@ -37,7 +46,7 @@ module.exports = {
     show(req, res) {
         Student.find(req.params.id, function(student) {
             if (!student) {
-                let erro = "Professor não encontrado."
+                let erro = "Estudante não encontrado."
                 return res.render("err", { erro: erro })
             }
 
@@ -50,7 +59,7 @@ module.exports = {
     edit(req, res) {
         Student.find(req.params.id, function(student) {
             if(!student) {
-                let erro = "Professor não encontrado."
+                let erro = "Estudante não encontrado."
                 return res.render("err", { erro: erro })
             }
 

@@ -385,3 +385,26 @@ thead tr:first-child th {
     border-radius: 4px;
     width: 195px;
 }
+
+/*pagination*/
+.cards .pagination {
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    align-items: center;
+    justify-self: center;
+}
+.pagination a,
+.pagination span {
+    color: var(--color-yellow);
+    text-decoration: none;
+    margin-right: 16px;
+    background: none;
+    padding: 0;
+    border-radius: initial;
+    border-bottom: 1px solid white;
+    box-sizing: border-box;
+}
+.pagination a:hover {
+    filter: brightness(0.3);
+    border-bottom: 1px solid var(--primary-color);
+}

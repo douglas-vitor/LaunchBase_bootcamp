@@ -1,19 +1,28 @@
-const db = require("../../config/db")
 const { age, date, graduation } = require("../../lib/utils")
 const Teacher = require("../models/Teacher")
 
 module.exports = {
     index(req, res) {
-        let {filter} = req.query
-        if(filter) {
-            Teacher.findBy(filter, function(datamy) {
-            return res.render("teachers/index", { teachers: datamy, filter})
-            })
-        } else {
-            Teacher.all(function(teachers) {
-                return res.render("teachers/index", { teachers })
-            })
+        let {filter, page, limit} = req.query
+
+        page = page || 1
+        limit = limit || 10
+        let offset = limit * (page - 1)
+
+        const params = {
+            filter,
+            page,
+            limit,
+            offset,
+            callback(teachers) {
+                const pagination = {
+                    total: Math.ceil(teachers[0].total / limit),
+                    page
+                }
+                return res.render("teachers/index", { teachers, filter, pagination })
+            }
         }
+        Teacher.paginate(params)
     },
     create(req, res) {
         return res.render("teachers/create")
