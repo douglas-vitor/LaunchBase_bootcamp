@@ -53,7 +53,10 @@ module.exports = {
             student.education = grade(student.education_level)
             student.birth = date(student.birth_date).birthDay
 
-            return res.render("students/show", { student })
+            Student.instructorSelectOptions(function(teacher) {
+                console.log(teacher)
+                return res.render("students/show", { student, teacher })
+            })
         })
     },
     edit(req, res) {

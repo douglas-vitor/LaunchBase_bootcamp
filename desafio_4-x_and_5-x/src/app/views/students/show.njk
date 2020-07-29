@@ -31,6 +31,15 @@
                     <h2>{{student.studyload}}</h2>
                 </div>
 
+                <div class="item">
+                    <h1>Aluno de</h1>
+                    {% for name in teacher %}
+                        {% if name.id == student.teacher_id %}
+                            <h2>{{name.name}}</h2>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
                 <div class="container-buttons">
                     <a class="submit-edit" href="/students/{{student.id}}/edit">Editar</a>
                     <form id="form-delete" action="/students?_method=DELETE" method="POST">
