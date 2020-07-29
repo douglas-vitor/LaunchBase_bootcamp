@@ -54,7 +54,6 @@ module.exports = {
             student.birth = date(student.birth_date).birthDay
 
             Student.instructorSelectOptions(function(teacher) {
-                console.log(teacher)
                 return res.render("students/show", { student, teacher })
             })
         })
