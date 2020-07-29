@@ -26,6 +26,6 @@
 - [Desafio 3 - 1](https://github.com/douglas-vitor/LaunchBase_bootcamp/blob/master/desafio_3-1_server.js)
 - [Desafio 3 - 2](https://github.com/douglas-vitor/LaunchBase_bootcamp/blob/master/desafio_3-2_data_courses.js)
 - [Desafio 3 - 3](https://github.com/douglas-vitor/LaunchBase_bootcamp/blob/master/desafio_3-3_view-info-course.njk)
-###### **Módulo 4 and 5**
+###### **Módulo 4 e 5**
 ###### **Diretório :** (desafio_4-x_and_5-x/*)
 - [Desafios 4 e 5](https://github.com/douglas-vitor/LaunchBase_bootcamp/blob/master/desafio_4-x_and_5-x/)
