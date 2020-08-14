@@ -1,13 +1,13 @@
 # LaunchBase Bootcamp
 
-###### Aqui será postado todos os conteúdos propostos em aula, desafios e outros. Do curso Bootcamp LaunchBase da [Rocketseat](https://rocketseat.com.br/).
+###### Aqui será postado todos os conteúdos propostos em aula, desafios e outros, do curso Bootcamp LaunchBase da [Rocketseat](https://rocketseat.com.br/).
 
 <div align="center">
 <img src="logo-lauchbase.png" width="250px" height="auto">
 </div>
 
 ## Desafios concluídos:
-###### Pasta /assets/* ,  Guarda todas as imagens utilizadas nos desafios.
+###### Pasta /assets/* ,  Guarda todas as imagens utilizadas nos desafios 1 à 3.
 
 ###### **Módulo 1**
 ###### **Arquivos :** (desafio_1-1.js, desafio_1-2.js, desafio_1-3.js, desafio_1-4.js)
